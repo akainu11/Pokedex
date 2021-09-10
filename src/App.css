@@ -17,6 +17,7 @@ body {
   float: right;
   display: flex;
   align-items: center;
+  padding: 10px;
 }
 .divTableRow {
   display: table-row;
@@ -58,12 +59,13 @@ body {
 
 
 img {
-  height: 14em;
+  
+  height: 12em;
 }
 
 input {
   box-sizing: border-box;
-  font-size: 2rem;
+  font-size: 1rem;
   padding: 1rem;
   display: block;
   margin: 2rem auto;

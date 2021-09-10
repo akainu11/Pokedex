@@ -42,7 +42,7 @@ const App = () => {
           <input
             type="text"
             onChange={handleChange}
-            placeholder="enter pokemon name"
+            placeholder="Enter Pokemon name"
           />
         </label>
       </form>
@@ -51,7 +51,9 @@ const App = () => {
       {pokemonData.map((data) => {
         return (
           <div className="container">
-            <img class="m" src={data.sprites["front_shiny"]} />
+            
+            <img class="m" src={data.sprites["front_default"]} />
+            
             <div className="divTable">
               <div className="divTableBody">
                 <div className="divTableRow">
@@ -75,6 +77,7 @@ const App = () => {
                 
               </div>
             </div>
+            <img class="m" src={data.sprites["front_shiny"]} />
           </div>
         );
       })}
