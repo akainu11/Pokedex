@@ -5,7 +5,8 @@ import axios from "axios";
 import { useEffect, useState } from 'react';
 
 const App = () => {
-  const [pokemon, setPokemon] = useState("pikachu");
+  const [works, setWorks] = useState(true)
+  const [pokemon, setPokemon] = useState("darkrai");
   const [pokemonData, setPokemonData] = useState([]);
   const [pokemonType, setPokemonType] = useState("");
 
@@ -14,7 +15,7 @@ const App = () => {
   }, [])
   const handleChange = (e) => {
     setPokemon(e.target.value.toLowerCase());
-
+    
   }
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,15 +26,21 @@ const App = () => {
     try{
       const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
       const res = await axios.get(url);
+      setWorks(true);
       toArray.push(res.data);
       setPokemonType(res.data.types[0].type.name);
       setPokemonData(toArray);
       console.log(res);
+      
     }catch(e){
+      setPokemon('');
+      setPokemonData([]);
+      setPokemonType('')
+      setWorks(false);
       console.log(e);
     }
   }
-  console.log(pokemonData);
+  
   return (
     <div className="App">
       <form onSubmit={handleSubmit}>
@@ -48,11 +55,11 @@ const App = () => {
       </form>
       {/* <ul>{pokemonData}</ul> */}
       {/* <p>{[pokemonData]}</p> */}
-      {pokemonData.map((data) => {
+      {!works ? <h1>Check Your Spelling</h1>:pokemonData.map((data) => {
         return (
           <div className="container">
             
-            <img class="m" src={data.sprites["front_default"]} />
+            <img className="m" src={data.sprites["front_default"]} />
             
             <div className="divTable">
               <div className="divTableBody">
@@ -74,10 +81,13 @@ const App = () => {
                     {Math.round(data.weight / 4.3)} lbs
                   </div>
                 </div>
-                
+                <div className="divTableRow">
+                  <div className="divTableCell">Ability</div>
+                  <div className="divTableCell">{data.abilities[0].ability.name}</div>
+                </div>
               </div>
             </div>
-            <img class="m" src={data.sprites["front_shiny"]} />
+            <img className="m" src={data.sprites["front_shiny"]} />
           </div>
         );
       })}

@@ -57,7 +57,9 @@ body {
   justify-content: center;
 }
 
-
+.m img{
+  padding: 5px;
+}
 img {
   
   height: 12em;
