@@ -3,7 +3,7 @@
 }
 
 body {
-  background-image: url("https://drive.google.com/uc?export=view&id=1l7Dvl8_ii1Id9p2McNc2Em6uCdrgF7Ls");
+  background-image: url("./poke.png");
   background-size: 150%;
 }
 .b{
@@ -53,7 +53,7 @@ body {
 .container {
   display: flex;
   opacity: 0.9;
-  background-color: white;
+  background-image: url("https://drive.google.com/uc?export=view&id=15J1F_v62CMSphoZl8GMNZ9j7EDWSfBKn");
   justify-content: center;
 }
 
@@ -62,9 +62,11 @@ body {
 }
 img {
   
-  height: 12em;
+  height: 8em;
 }
-
+img:hover{
+  opacity: 0.7;
+}
 input {
   box-sizing: border-box;
   font-size: 1rem;

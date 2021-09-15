@@ -58,14 +58,14 @@ const App = () => {
       {!works ? <h1>Check Your Spelling</h1>:pokemonData.map((data) => {
         return (
           <div className="container">
-            
-            <img className="m" src={data.sprites["front_default"]} />
-            
+            <a href="https://www.youtube.com/watch?v=BoZ0Zwab6Oc" target="_blank">
+              <img className="m" src={data.sprites["front_default"]} />
+            </a>
             <div className="divTable">
               <div className="divTableBody">
                 <div className="divTableRow">
                   <div className="divTableCell">Type</div>
-                  <div className="divTableCell">{pokemonType}</div>
+                  <div className="divTableCell">{data.types[0].type.name}</div>
                 </div>
                 <div className="divTableRow">
                   <div className="divTableCell">Height</div>
@@ -87,7 +87,9 @@ const App = () => {
                 </div>
               </div>
             </div>
-            <img className="m" src={data.sprites["front_shiny"]} />
+            <a href="https://www.youtube.com/watch?v=BoZ0Zwab6Oc" target="_blank">
+              <img className="m" src={data.sprites["front_shiny"]} />
+            </a>
           </div>
         );
       })}
